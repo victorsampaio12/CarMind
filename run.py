@@ -7,13 +7,16 @@ from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 from form.form_user import UserForm
 import os
+import re
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = '04062019'
-import os  # lá no topo do arquivo
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+database_url = os.environ.get('DATABASE_URL', '')
+if database_url.startswith('postgres://'):
+    database_url = re.sub(r'^postgres://', 'postgresql://', database_url)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
