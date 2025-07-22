@@ -6,10 +6,14 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 from form.form_user import UserForm
+import os
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = '04062019'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:04062019@localhost/carmind'
+import os  # lá no topo do arquivo
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
