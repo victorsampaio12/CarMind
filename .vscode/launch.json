@@ -5,11 +5,11 @@
       "name": "GaragemAdd Flask",
       "type": "debugpy",
       "request": "launch",
-      "program": "${workspaceFolder}/run.py",
+      "program": "${workspaceFolder}/app.py",
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}",
       "env": {
-        "FLASK_APP": "run.py",
+        "FLASK_APP": "app.py",
         "FLASK_ENV": "development"
       },
       "args": ["run"],
