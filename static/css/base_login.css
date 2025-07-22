@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Serif TC';
+}
+
+body {
+    background-color: #f4f4f4;
+    height: 100vh;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.sidebar {
+    position: relative;
+    width: 650px;
+    height: 100vh;
+    overflow: hidden;
+    box-shadow: 8px 0 10px rgba(0, 0, 0, 0.199);
+}
+
+.sidebar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.171);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.sidebar-logo {
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    width: 130px;
+    z-index: 3;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding: 130px 20px 20px 20px;
+    background-color: #ffffff;
+}
+
+

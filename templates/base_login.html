@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}CarMind{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base_login.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <img src="{{ url_for('static', filename='imagens/sidebar_login.png') }}" alt="Imagem lateral" class="sidebar-image">
+            <div class="sidebar-overlay"></div>
+            <a href="{{ url_for('start') }}">
+                <img src="{{ url_for('static', filename='imagens/logo_base.png') }}" alt="Logo" class="sidebar-logo">
+            </a>
+        </aside>
+
+         <main class="main-content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+</body>
+</html>

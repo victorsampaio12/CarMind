@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CarMind-profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+    <script src="https://unpkg.com/imask"></script>
+</head>
+<body>
+    <div class="form-container">
+        <a href="{{ url_for('garage_bp.menu') }}">
+            <button class="btn-voltar">
+                <img src="{{ url_for('static', filename='imagens/back.png') }}" alt="voltar">
+            </button>
+        </a>
+
+        <p>Seu perfil</p>
+        <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                    {{ message }}
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+
+            <div class="form-layout">
+                <div class="form-left">
+
+                    <h3>Dados Pessoais</h3>
+
+                    <div class="form-group">
+                        {{ form.complet_name.label }}
+                        {{ form.complet_name(size=32, class_="form-control") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.email.label }}
+                        {{ form.email(size=32, class_="form-control") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.phone.label }}
+                        {{ form.phone(id="phone", size=20, class_="form-control") }}
+                    </div>
+
+                </div>
+
+                <div class="form-right">
+
+                    <h3>Segurança</h3>
+
+                    <div class="form-group senha-container">
+                        {{ form.password.label }}
+                        {{ form.password(class_="form-control senha-input", id="senha") }}
+                        <img src="{{ url_for('static', filename='imagens/eye.png') }}" class="toggle-password" data-target="senha" alt="mostrar senha">
+                    </div>
+
+                    <div class="form-group botao-update">
+                        {{ form.update(class_="btn-update") }}
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

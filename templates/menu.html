@@ -1,0 +1,67 @@
+{% extends 'base_menu.html' %}
+
+{% block title %}CarMind-Menu{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/menu.js') }}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div id="garages-container">
+    {% for garagem in garagens %}
+    <div class="garagem-bloco" data-garagem-id="{{ garagem.id }}">
+        <div class="carrossel-header">
+            <img src="{{ url_for('static', filename='imagens/garage.png') }}" class="garage">
+            <a href="{{ url_for('garage_bp.adicionar_carro', garagem_id=garagem.id) }}">
+                <p class="novo-carro-text">Novo carro +</p>
+            </a>
+        </div>
+
+        <div class="carrossel-container">
+            <img src="{{ url_for('static', filename='imagens/arrow_left.png') }}" class="arrow left-arrow">
+            <div class="carrossel-wrapper">
+                <div class="carrossel-content" data-garagem-id="{{ garagem.id }}">
+                    {% for carro in garagem.carros %}
+                        {% set caminho = 'uploads/' ~ carro.imagem_filename %}
+                        {% if carro.imagem_filename == 'image.png' %}
+                            {% set caminho = 'imagens/' ~ carro.imagem_filename %}
+                        {% endif %}
+                        <div class="carrossel-item">
+                            <img src="{{ url_for('static', filename=caminho) }}" alt="Carro" data-carro-id="{{ carro.id }}" />
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <input type="file" id="inputAdicionarCarro" accept="image/*" style="display:none">
+            <input type="file" id="inputTrocarImagem" accept="image/*" style="display:none">
+
+            <img src="{{ url_for('static', filename='imagens/arrow_right.png') }}" class="arrow right-arrow">
+        </div>
+        <form method="POST" action="{{ url_for('garage_bp.excluir_garagem', garagem_id=garagem.id) }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button type="submit" class="btn-excluir">Excluir garagem</button>
+        </form>
+
+
+
+        <p class="add-text comentario-texto abrir-comentario">Adicione um comentário sobre</p>
+
+        <div class="painel-comentario" style="display:none;">
+            <div class="painel-topo">
+                <img src="{{ url_for('static', filename='imagens/back.png') }}" class="btn-voltar fechar-comentario">
+                <span class="titulo-painel">Sobre a garagem</span>
+            </div>
+
+            <textarea class="textarea-comentario" placeholder="Digite seu comentário...">{{ garagem.comentario.texto if garagem.comentario else '' }}</textarea>
+
+            <button class="btn-confirmar" data-garagem-id="{{ garagem.id }}">Confirmar</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Serif TC';
+}
+
+.carrossel-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 50px 200px 0px 0px;
+}
+
+.garage {
+    width: 275px;
+    height: 45px;
+    margin-left: 175px;
+    cursor: pointer; 
+}
+
+a {
+    text-decoration: none;
+}
+
+.novo-carro-text {
+    color: #00376A;
+    font-size: 25px;
+    font-weight: 500;
+    cursor: pointer; 
+}
+
+.carrossel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative; 
+}
+
+.carrossel-wrapper {
+    overflow-x: auto; 
+    scroll-behavior: smooth;
+    width: 1510px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    scrollbar-width: none; /* Firefox */
+}
+.carrossel-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.carrossel-content {
+    display: flex;
+    gap: 40px;
+    min-width: max-content; /* Faz o conteúdo crescer e permitir scroll */
+    transition: transform 0.3s ease;
+}
+
+.carrossel-item {
+    position: relative;
+    width: 475px;
+    height: 275px;
+    background: #F9F9F9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.carrossel-item img[src*="image.png"] {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Estilo geral pra qualquer imagem real */
+.carrossel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+.placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #F9F9F9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.plus-image {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    display: block;
+}
+
+.comentario-texto {
+    font-size: 25px;
+    color: #00376A;
+    font-weight: 500;
+    margin-top: 15px;
+    margin-right: 180px;
+    text-align: right; 
+    cursor: pointer;
+}
+
+.painel-comentario {
+    display: none; 
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    background: white;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    border-radius: 15px;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.painel-topo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.btn-voltar {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.titulo-painel {
+    font-size: 20px;
+    color: #00376A;
+}
+
+.textarea-comentario {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    margin-bottom: 20px;
+}
+
+.btn-confirmar {
+    background-color: #00376A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    float: right;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-excluir {
+  box-sizing: border-box;
+  width: 177px;
+  height: 37px;
+  background: #00376A;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left: 180px;
+}
+
+.btn-excluir:hover {
+  background: #005099;
+  transform: scale(1.02);
+}

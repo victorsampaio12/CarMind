@@ -1,0 +1,67 @@
+.form-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 650px;
+    height: 300px;
+    border-top: 4px solid #00376A;
+}
+
+.form-group {
+    display: flex;
+    align-items: baseline; 
+    margin-bottom: 0.9rem;
+    color: #787878;
+    font-size: 1.2rem;
+}
+
+.form-group label{
+    width: 75px;  
+    margin-right: 1px;
+    text-align: left;
+}
+
+.form-group input {
+    flex: 1; 
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    box-sizing: border-box;
+    border: none;            
+    border-bottom: 2px solid #E0E0E0;  
+    background: transparent;
+    outline: none;           
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-bottom-color: #00376A; 
+}
+
+.icon-senha {
+    width: 16px; 
+    height: 16px;
+    display: block;        
+    margin-top: 0;
+}
+
+.btn {
+    width: 350px;
+    height: 60px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    transition: background-color 0.3s ease;
+    margin-top: 60px;
+}
+
+.btn-enter {
+    background-color: #00376A;
+    color: #ffffff;
+}
+
+.btn-enter:hover {
+    background-color: #00376ab0;
+}

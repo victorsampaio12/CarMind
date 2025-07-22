@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Serif TC';
+}
+
+.form-container {
+    max-width: 1500px;
+    margin: 100px auto 0 auto;
+    padding: 0 20px;
+    background-color: #ffffff;
+    position: relative;
+    min-height: calc(100vh - 80px); 
+}
+
+.btn-voltar {
+    position: absolute;
+    top: -10px;
+    left: -25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-voltar img {
+    height: 50px;
+}
+
+.form-container > p {
+    font-size: 30px;
+    font-weight: 300;
+    margin-left: 25px;
+    color: #00376A;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+.form-layout {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.form-left, .form-right {
+    width: 45%;
+}
+
+.form-left {
+    margin-top: 10px;
+}
+
+.form-right {
+    margin-top: 10px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #00376A;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-control {
+    width: 700px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: #00376A;
+}
+
+.senha-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.toggle-password:hover {
+    opacity: 1;
+}
+
+.checkbox-email {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkbox-label {
+    font-size: 13px;
+    color: #000000;
+    font-weight: 500;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.checkbox-input {
+    width: 18px;
+    height: 18px;
+    accent-color: #00376A; 
+    cursor: pointer;
+}
+
+.botao-update {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-update {
+    display: block;
+    margin: 0px auto 0 auto;  
+    padding: 12px 30px;
+    background-color: #00376A;
+    color: white;
+    border: none;
+    width: 350px;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-update:hover {
+    background-color: #00376ab0;
+}
+
