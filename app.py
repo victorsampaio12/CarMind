@@ -12,7 +12,12 @@ import re
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = '04062019'
 
-database_url = os.environ.get('DATABASE_URL', '')
+database_url = os.environ.get('DATABASE_URL')
+
+if not database_url:
+    # fallback pra um banco local no SQLite, por exemplo
+    database_url = 'sqlite:///local.db'
+
 if database_url.startswith('postgres://'):
     database_url = re.sub(r'^postgres://', 'postgresql://', database_url)
 
@@ -41,9 +46,15 @@ def register():
     form = UserForm()
     return render_template('register.html', form=form)
 
+@app.route('/migrate')
+def migrate():
+    with app.app_context():
+        db.create_all()
+    return "Migração concluída! Tabelas criadas com sucesso."
 
 app.register_blueprint(user_bp)
 app.register_blueprint(garage_bp)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
